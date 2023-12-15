@@ -1,4 +1,3 @@
-Checks: '-*,bugprone-*,cert-*,clang-analyzer-*,-clang-analyzer-osx*,-clang-analyzer-webkit*,concurrency-*,cppcoreguidelines-*,misc-*,modernize-*,-modernize-use-trailing-return-type,performance-*,portability-*,readability-*,-readability-identifier-length,-*-magic-numbers'
+Checks: '-*,bugprone-*,cert-*,clang-analyzer-*,-clang-analyzer-osx*,-clang-analyzer-webkit*,concurrency-*,cppcoreguidelines-*,misc-*,-misc-include-cleaner,modernize-*,-modernize-use-trailing-return-type,performance-*,portability-*,readability-*,-readability-identifier-length,-readability-redundant-declaration,-*-magic-numbers'
 CheckOptions:
   readability-braces-around-statements.ShortStatementLines: '1'
-HeaderFilterRegex: '.*'

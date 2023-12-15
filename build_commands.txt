@@ -1,3 +1,13 @@
-clang++-17 -std=c++23 -stdlib=libc++ -O2 -Wall -Wextra -Wnon-gcc -o solve part1.cpp
+# Solutions
 
-clang++-17 -std=c++23 -stdlib=libc++ -O2 -Wall -Wextra -Wnon-gcc -o solve part2.cpp
+clang++-17 -std=c++23 -stdlib=libc++ -O2 -Wall -Wextra -Wnon-gcc -fprebuilt-module-path=../out -c part1.cpp -o ../out/part1.o
+clang++-17 -std=c++23 -stdlib=libc++ -O2 -Wall -Wextra -Wnon-gcc ../out/part1.o ../out/utils.o ../out/utils_impl.o -o solve
+
+clang++-17 -std=c++23 -stdlib=libc++ -O2 -Wall -Wextra -Wnon-gcc -fprebuilt-module-path=../out -c part2.cpp -o ../out/part2.o
+clang++-17 -std=c++23 -stdlib=libc++ -O2 -Wall -Wextra -Wnon-gcc ../out/part2.o ../out/utils.o ../out/utils_impl.o -o solve
+
+# Modules (see https://releases.llvm.org/17.0.1/tools/clang/docs/StandardCPlusPlusModules.html)
+
+clang++-17 -std=c++23 -stdlib=libc++ -O2 -Wall -Wextra -Wnon-gcc --precompile ../mod/utils.cppm -o ../out/utils.pcm
+clang++-17 -std=c++23 -O2 -Wall -Wextra -Wnon-gcc -c ../out/utils.pcm -o ../out/utils.o
+clang++-17 -std=c++23 -stdlib=libc++ -O2 -Wall -Wextra -Wnon-gcc -fprebuilt-module-path=../out -c ../mod/utils_impl.cpp -o ../out/utils_impl.o

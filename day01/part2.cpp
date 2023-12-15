@@ -1,19 +1,18 @@
 #include <array>
-#include <cstdlib>
 #include <fstream>
 #include <print>
-#include <span>
 #include <string>
 #include <string_view>
 #include <tuple>
 
+import utils;
+
 using namespace std;
 
 int extract_calibration_value(const string &line);
-[[noreturn]] void error(string_view error_message);
 
 int main(int argc, char *argv[]) noexcept(false) {
-    const span args{argv, static_cast<size_t>(argc)};
+    auto args = main_args_as_span(argc, argv);
 
     if (args.size() < 2) error("Input filename expected");
     const string_view input_filename{args[1]};
@@ -72,9 +71,4 @@ int extract_calibration_value(const string &line) {
     }
 
     return first_digit * 10 + last_digit; // NOLINT(*-magic-numbers)
-}
-
-void error(string_view error_message) {
-    println("ERROR: {}", error_message);
-    exit(1); // NOLINT(concurrency-mt-unsafe)
 }

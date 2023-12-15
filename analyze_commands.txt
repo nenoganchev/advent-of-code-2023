@@ -1,5 +1,12 @@
-clang++-17 -std=c++23 -stdlib=libc++ -g --analyze -Wall -Wextra -Wnon-gcc -o part1.analyze part1.cpp
-clang-tidy-17 part1.cpp -- -std=c++23 -stdlib=libc++ -g -Wall -Wextra -Wnon-gcc
+# Solutions
 
-clang++-17 -std=c++23 -stdlib=libc++ -g --analyze -Wall -Wextra -Wnon-gcc -o part2.analyze part2.cpp
-clang-tidy-17 part2.cpp -- -std=c++23 -stdlib=libc++ -g -Wall -Wextra -Wnon-gcc
+clang++-17 -std=c++23 -stdlib=libc++ -g --analyze -Wall -Wextra -Wnon-gcc -fprebuilt-module-path=../out -o .part1.analyze part1.cpp
+clang-tidy-17 part1.cpp -- -std=c++23 -stdlib=libc++ -g -Wall -Wextra -Wnon-gcc -fprebuilt-module-path=../out
+
+clang++-17 -std=c++23 -stdlib=libc++ -g --analyze -Wall -Wextra -Wnon-gcc -fprebuilt-module-path=../out -o .part2.analyze part2.cpp
+clang-tidy-17 part2.cpp -- -std=c++23 -stdlib=libc++ -g -Wall -Wextra -Wnon-gcc -fprebuilt-module-path=../out
+
+# Modules
+
+clang-tidy-17 ../mod/utils.cppm -- -std=c++23 -stdlib=libc++ -g -Wall -Wextra -Wnon-gcc
+clang-tidy-17 ../mod/utils_impl.cpp -- -std=c++23 -stdlib=libc++ -g -Wall -Wextra -Wnon-gcc -fprebuilt-module-path=../out
