@@ -1,0 +1,3 @@
+clang++-17 -std=c++23 -stdlib=libc++ -O2 -Wall -Wextra -Wnon-gcc -o solve part1.cpp
+
+clang++-17 -std=c++23 -stdlib=libc++ -O2 -Wall -Wextra -Wnon-gcc -o solve part2.cpp
